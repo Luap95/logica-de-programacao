@@ -1,0 +1,41 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+	
+	//puxando a tela para manipulação no Javascript
+	var tela = document.querySelector("canvas");
+	//definindo o tipo de pintura
+	var pincel = tela.getContext("2d");
+
+	//selecionando a cor do pincel
+	pincel.fillStyle = "blue";
+	//selecionando a forma e seu tamanho
+	pincel.fillRect(0, 0, 600,400);
+
+	pincel.fillStyle = "red";
+	pincel.fillRect(0, 0, 200, 400);
+
+	pincel.fillStyle = "green";
+	pincel.fillRect(400, 0, 200, 400);
+
+	//fazendo um triângulo
+	pincel.fillStyle = "yellow";
+	//iniciando desenho livre
+	pincel.beginPath();
+	//definindo ponto inicial
+	pincel.moveTo(300, 200);
+	//traçando a linha
+	pincel.lineTo(200, 400);
+	pincel.lineTo(400, 400);
+	//preencher a forma
+	pincel.fill();
+
+	//fazendo um círculo
+	pincel.fillStyle = "white";
+	pincel.beginPath();
+	//criando o círculo
+	pincel.arc(300, 200, 50, 0, 2 * 3.14);
+	pincel.fill();
+
+
+</script>

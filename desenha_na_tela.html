@@ -1,0 +1,74 @@
+<canvas width="600" height="400"></canvas>
+<br>
+Selecione a cor <input type="color">
+<script>
+    
+    var tela = document.querySelector("canvas");
+    var pincel = tela.getContext("2d");
+    //variavel para alterar a cor do desenho
+    var paleta = document.querySelector("input");
+    
+    pincel.fillStyle = "grey";
+    pincel.fillRect(0, 0, 600, 400);
+
+    var cores = ["blue", "red", "green"];
+    var indiceCorAtual = 0 //cor inicial azul
+    var raio = 10
+    var desenha = false // variavel que ativa ou desativa o modo de desenho
+    
+    //recebendo posição do click do mouse para dentro da função
+    function desenhaCirculo(evento){
+        //se desenha for true é ativado o modo de desenho
+        if(desenha){
+            //utilizando o offsetLeft e offsetTop para saber a posição do click dentro do canvas
+            var x = evento.pageX - tela.offsetLeft;
+            var y = evento.pageY - tela.offsetTop;
+            
+            //quando pressionado o shift a bola aumenta 10
+            if(evento.shiftKey && raio <= 40){
+
+                raio = raio + 10; 
+            }
+            if(evento.altKey && raio >= 10){
+
+                raio = raio - 5;
+            }
+            //criando uma bolinha onde foi feito o click
+            pincel.fillStyle = paleta.value;//desenho recebe a cor selecionada
+            pincel.beginPath();
+            pincel.arc(x, y, raio, 0, 2 * 3.14);
+            pincel.fill();
+            //alert(x + "," + y);
+        }
+    }
+    
+    tela.onmousemove = desenhaCirculo;
+
+    function mudaCor(){
+
+        indiceCorAtual++;
+        if (indiceCorAtual >= cores.length) {
+            indiceCorAtual = 0; // volta para a primeira cor, azul
+        }
+        alert(cores[indiceCorAtual]);
+        return false
+    }
+    //quando o botão esquerdo do mouse estiver aperto ele ativa o modo de desenho
+    function habilitaDesenhar(){
+
+        desenha = true;
+    }
+    //quando o botão esquerdo do mouse estiver aperto ele desativa o modo de desenho
+    function desabilitaDesenhar(){
+
+        desenha = false;
+    }
+    
+    
+    
+    //tela.oncontextmenu = mudaCor;
+    tela.onmousedown = habilitaDesenhar;
+    tela.onmouseup = desabilitaDesenhar;
+  
+    
+</script>

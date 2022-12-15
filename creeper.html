@@ -1,0 +1,27 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+	
+	//recriando o rosto do creeper de Minecraft
+	//puxando a tela para manipulação no Javascript
+	var tela = document.querySelector("canvas");
+	//definindo o tipo de pintura
+	var pincel = tela.getContext("2d");
+	//selecionando a cor verde escuro para o pincel
+	pincel.fillStyle = "darkgreen";
+	//criando retângulo da cabeça
+	pincel.fillRect(200, 50, 350, 300);
+	//retângulo do olho direito
+	pincel.fillStyle = "black";
+	pincel.fillRect(250, 110, 90, 90);
+	//retângulo do olho esquerdo
+	pincel.fillStyle = "black";
+	pincel.fillRect(410, 110, 90, 90);
+	//retângulo do nariz
+	pincel.fillRect(340, 200, 70, 110);
+	//retângulos da boca
+	pincel.fillRect(300, 240, 40, 110);
+	pincel.fillRect(410, 240, 40, 110);
+
+
+</script>

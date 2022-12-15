@@ -1,0 +1,31 @@
+<meta charset="UTF-8">
+
+<script>
+
+	//função para pular linha
+	function pulaLinha(){
+
+		document.write("<br>");
+	}
+
+	//função para mostrar uma mensagem em html
+	function mostra(mensagem){
+
+		document.write(mensagem);
+		pulaLinha();
+	}
+
+	
+	var limite = parseInt(prompt("Informe o ano limite"));
+	var anoCopa = 1930;
+
+	//estrutura de repetição
+	while(anoCopa <= limite){
+
+		mostra(anoCopa + " teve copa");
+		anoCopa = anoCopa + 4;
+	}
+
+	mostra("FIM");
+
+</script>

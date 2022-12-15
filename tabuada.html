@@ -1,0 +1,27 @@
+<meta charset="UTF-8">
+
+<script>
+
+	//função para pular linha
+	function pulaLinha(){
+
+		document.write("<br>");
+	}
+
+	//função para mostrar uma mensagem em html
+	function mostra(mensagem){
+
+		document.write(mensagem);
+		pulaLinha();
+	}
+
+	var valor = parseInt(prompt("Infome qual numero você quer ver a tabuada"));
+
+	//estrutura de repetição for
+	for(var multiplicador = 1; multiplicador <= 10; multiplicador++){
+
+		var resultado = valor * multiplicador;
+		mostra(valor + "x" + multiplicador + "=" + resultado);
+	}
+
+</script>

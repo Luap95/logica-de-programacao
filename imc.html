@@ -1,0 +1,49 @@
+<meta charset="UTF-8">
+
+<script>
+
+	//função para pular linha
+	function pulaLinha(){
+
+		document.write("<br>");
+	}
+
+	//função para mostrar uma mensagem em html
+	function mostra(mensagem){
+
+		document.write(mensagem);
+		pulaLinha();
+	}
+
+	//função para calcular imc
+	function calculaImc(peso, altura, nome){
+		
+		var imc = Math.round(peso / (altura * altura));
+		mostra("O IMC de " + nome + " é: " + imc);
+	}
+
+	//função que retorna caculo do IMC
+	function calculadoraImc(peso, altura){
+		
+		var imc = Math.round(peso / (altura * altura));
+		return imc;
+	}
+
+	calculaImc(80, 1.77, "João");
+	
+	pulaLinha();
+
+	var totalImc = calculadoraImc(80, 1.77) + calculadoraImc(60, 1.60);
+
+	mostra("A soma de Imc é " + totalImc);
+	pulaLinha();
+
+	//utilizando o prompt para pegar os dados
+	var seuNome = prompt("Informe o seu nome");
+	var seuPeso = prompt(seuNome + ", informe o seu peso");
+	var suaAltura = prompt(seuNome + ", informe a sua altura");
+
+	calculaImc(seuPeso, suaAltura, seuNome);
+
+
+</script>
